@@ -1,0 +1,10 @@
+name: discovery
+redirector_port: 9090
+spec: whip/calculator.whip
+interpreters:
+  Adder: thrift(idl='src/calc.thrift',ns='calc',protocol='binary',transport='framed')
+  AdderDiscovery: thrift(idl='src/calc.thrift',ns='calc',protocol='binary',transport='framed')
+server_proxies:
+  - discovery:7999 proxiedby discovery:38000 mapstoservice AdderDiscovery
+client_proxies:
+  - discovery:7999 knownbyport 8000 mapstoservice AdderDiscovery

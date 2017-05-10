@@ -17,5 +17,5 @@ service AdderDiscovery {
     void register_adder(1: string host, 2: int port);
 
     // returns the host information for an adder service
-    Hostinfo get_adder_info(1: string sid);
+    Hostinfo get_adder_info();
 }

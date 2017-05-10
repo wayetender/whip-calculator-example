@@ -5,4 +5,12 @@ services:
     ports: 
       - "8000:8000"
       - "38000:38000"
-    entrypoint: ./discovery/run.sh
+    entrypoint: ./run_discovery.sh
+  adder:
+    build: .
+    ports:
+      - "8001:8001"
+      - "38001:38001"
+    entrypoint: ./run_adder.sh
+  client:
+    build: .

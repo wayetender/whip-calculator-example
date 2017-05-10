@@ -16,7 +16,6 @@ logger = logging.getLogger(__name__)
 class Handler:
     def __init__(self):
         self.users = {}
-        self.sessions = {}
         self.adders = []
 
     def register_adder(self, host, port):
