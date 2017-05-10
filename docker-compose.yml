@@ -1,0 +1,8 @@
+version: '2'
+services:
+  discovery:
+    build: .
+    ports: 
+      - "8000:8000"
+      - "38000:38000"
+    entrypoint: ./discovery/run.sh
