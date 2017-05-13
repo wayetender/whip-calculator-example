@@ -1,13 +1,13 @@
 service AdderDiscovery {
     get_adder_info()
-    @identifies a:Adder by {{ "%s:%s" % (result.host, result.port) }}
+    @identifies Adder by {{ "%s:%s" % (result.host, result.port) }}
 
     register_adder(host, port)
-    @identifies a:Adder by {{ "%s:%d" % (host, port) }}
+    @identifies Adder by {{ "%s:%d" % (host, port) }}
 }
 
 service Adder {
     add(a, b)
-    @precondition {{ a > 0 and b > 0 }}
-    @postcondition {{ result == a + b }}
+    @requires {{ a > 0 and b > 0 }}
+    @ensures {{ result == a + b }}
 }
