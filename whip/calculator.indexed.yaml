@@ -1,0 +1,14 @@
+service AdderDiscovery {
+    get_adder_info()
+    @identifies Adder by {{ "%s:%s?%s" % (result.host, result.port, 1) }}
+
+    register_adder(host, port)
+    @identifies Adder by {{ "%s:%d?%s" % (host, port, 1) }}
+}
+
+service Adder {
+    add(a, b)
+    @where index is {{ a }}
+    @requires {{ a > 0 and b > 0 }}
+    @ensures {{ result == a + b }}
+}

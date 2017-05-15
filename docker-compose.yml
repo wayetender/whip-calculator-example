@@ -14,3 +14,7 @@ services:
     entrypoint: ./run_adder.sh
   client:
     build: .
+    depends_on:
+      - discovery
+      - adder
+    entrypoint: ./run_client.sh
