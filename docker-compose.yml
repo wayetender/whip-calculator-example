@@ -12,6 +12,8 @@ services:
       - "8001:8001"
       - "38001:38001"
     entrypoint: ./run_adder.sh
+    depends_on:
+      - discovery
   client:
     build: .
     depends_on:
